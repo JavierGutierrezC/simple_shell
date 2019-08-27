@@ -1,11 +1,10 @@
 #include "shellib.h"
 
-
-
-
-
-
-
+/**
+ * _stat - ...
+ * @bftoken: ...
+ * @pat: ...
+ **/
 void _stat(char **bftoken, char **pat)
 {
 	char *newval = NULL;
@@ -13,7 +12,7 @@ void _stat(char **bftoken, char **pat)
 
 	struct stat sb;
 
-	for (x=1; pat[x] != NULL; x++)
+	for (x = 1 ; pat[x] != NULL ; x++)
 	{
 		newval = str_concat((str_concat(pat[x], "/")), *bftoken);
 

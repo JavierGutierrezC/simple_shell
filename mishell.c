@@ -1,9 +1,13 @@
 #include "shellib.h"
 
 /**
- * main -
+ * main - ...
+ * @ac: ...
+ * @av: ...
+ * @environ: ...
+ *
+ * Return: ...
  **/
-
 int main(int ac, char *av[], char **environ)
 {
 
@@ -13,7 +17,7 @@ int main(int ac, char *av[], char **environ)
 	while (1)
 	{
 
-		write(1,"mastershell$ ", 13);
+		write(1, "mishell$ ", 9);
 		characters = getline(&bf, &bfsize, stdin);
 
 		if (characters == -1)
@@ -24,7 +28,7 @@ int main(int ac, char *av[], char **environ)
 			return (1);
 		}
 
-		if (*bf != '\n' && (strcmp(bf,"env\n") != 0))
+		if (*bf != '\n' && (strcmp(bf, "env\n") != 0))
 		{
 			bftoken = linetoken(bf);
 			pat = findpath(environ);
@@ -36,10 +40,10 @@ int main(int ac, char *av[], char **environ)
 			find_env(environ);
 		}
 	}
-	/**free(bf);
-	 *free(bftoken);
-	 *free(pat);
-	 *free(env);
-	 *free(characters);*/
+       /*free(bf);
+	 free(bftoken);
+	 free(pat);
+	 free(env);
+	 free(characters);*/
 	return (0);
 }
