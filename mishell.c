@@ -11,9 +11,9 @@
 int main(int ac, char *av[], char **environ)
 {
 
-	char *bf, **bftoken, **pat, *env;
+	char *bf, **bftoken, **pat;
 	size_t characters, bfsize = 0;
-
+	/*char *env*/
 	while (1)
 	{
 
