@@ -1,24 +1,35 @@
 #include "shellib.h"
 
 /**
- * _stat - ...
- * @bftoken: ...
- * @pat: ...
+ * _stat - function that shows sistem files
+ * @bftoken: buffer pointer with commands
+ * @pat: pointer with the location of each directory
+ * Return: 1 on success
  **/
-void _stat(char **bftoken, char **pat)
+int _stat(char **bftoken, char **pat)
 {
-	char *newval = NULL;
+	char *newval = NULL, *newval2 = NULL;
 	int x;
 
 	struct stat sb;
 
 	for (x = 1 ; pat[x] != NULL ; x++)
 	{
-		newval = str_concat((str_concat(pat[x], "/")), *bftoken);
+		newval = str_concat(pat[x], "/");
+		newval2 = str_concat(newval, bftoken[0]);
 
-		if (stat(newval, &sb) == 0)
+		if (stat(newval2, &sb) == 0)
 		{
-			bftoken[0] = newval;
+			bftoken[0] = newval2;
+			free(newval);
+			free(pat[0]);
+			free(pat);
+			return (1);
 		}
+		free(newval);
+		free(newval2);
 	}
+	free(pat[0]);
+	free(pat);
+	return (0);
 }

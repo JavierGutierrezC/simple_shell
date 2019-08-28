@@ -11,14 +11,16 @@
 #include <string.h>
 #include <sys/wait.h>
 
-int exefork(char **bftoken);
+int exefork(char **bftoken, int goesin);
 int _putchar(char c);
 char **linetoken(char *linea);
 char **findpath(char **environ);
 char **usepath(char *fpat);
-void _stat(char **bftoken, char **pat);
+int _stat(char **bftoken, char **pat);
 char *str_concat(char *s1, char *s2);
 char *_strdup(char *str);
 void find_env(char **environ);
 void _puts(char *str);
+int _strcmp(char *s1, char *s2);
+void *_calloc(unsigned int nmemb, unsigned int size);
 #endif

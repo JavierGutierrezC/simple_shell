@@ -1,8 +1,8 @@
 #include "shellib.h"
 
 /**
- * find_env - ...
- * @environ: ...
+ * find_env - Get environment variables
+ * @environ: Environment variables
  **/
 void find_env(char **environ)
 {
