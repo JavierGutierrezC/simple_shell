@@ -35,7 +35,7 @@ int main(int ac, char *av[], char **environ)
 			bftoken = linetoken(bf);
 			if ((_strcmp(bftoken[0], "\n") != 0) && (_strcmp(bftoken[0], "env") != 0))
 			{
-				if ((_strcmp(bftoken[0], "env") != 0))
+				if ((_strcmp(bftoken[0], "env") == 0))
 				{
 					find_env(environ); }
 				else
