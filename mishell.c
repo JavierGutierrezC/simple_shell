@@ -22,7 +22,8 @@ int main(int ac, char *av[], char **environ)
 	while (1)
 	{
 
-		write(1, "$ ", 2);
+		if (isatty(STDIN_FILENO))
+			write(STDIN_FILENO, "$ ",2);
 		characters = getline(&bf, &bfsize, stdin);
 		if (characters == EOF)
 		{
