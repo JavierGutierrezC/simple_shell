@@ -24,6 +24,8 @@ char **linetoken(char *linea)
 		count++;
 		line = strtok(NULL, " \n\t\r\a");
 	}
+	if (buffer[0] == NULL)
+		buffer[count] = "\n";
 	if ((_strcmp(buffer[0], "exit") == 0) && buffer[1] == NULL)
 	{
 		free(buffer);
