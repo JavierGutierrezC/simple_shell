@@ -12,9 +12,8 @@ int exefork(char **bftoken, int goesin, char **environ)
 	pid_t child_pid;
 	int status;
 
-	if (bftoken == NULL)
-		return (-1);
-
+	/*if (bftoken == NULL) */
+	/*return (-1); */
 	child_pid = fork();
 
 	if (child_pid < 0)
@@ -25,9 +24,11 @@ int exefork(char **bftoken, int goesin, char **environ)
 	else if (child_pid == 0)
 	{
 		if (execve(bftoken[0], bftoken, environ) == -1)
+		{
 			perror("./hsh: ");
-		/**free(bftoken);*/
-		exit(1);
+			free(bftoken);
+			exit(1);
+		}
 	}
 	else
 	{
@@ -35,7 +36,7 @@ int exefork(char **bftoken, int goesin, char **environ)
 			free(bftoken[0]);
 		/* free(bftoken[0]); */
 		free(bftoken);
-		child_pid = wait(&status);
+		wait(&status);
 	}
 	return (0);
 }
