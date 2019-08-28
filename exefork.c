@@ -6,7 +6,7 @@
  * @goesin: If process does happen then execute
  * Return: 0
  **/
-int exefork(char **bftoken, int goesin)
+int exefork(char **bftoken, int goesin,char **environ)
 {
 	pid_t child_pid;
 	int status;
@@ -23,7 +23,7 @@ int exefork(char **bftoken, int goesin)
 	}
 	else if (child_pid == 0)
 	{
-		if (execve(bftoken[0], bftoken, NULL) == -1)
+		if (execve(bftoken[0], bftoken, environ) == -1)
 			perror("./hsh: ");
 		/**free(bftoken);*/
 		exit(1);

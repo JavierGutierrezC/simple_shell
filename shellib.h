@@ -11,7 +11,7 @@
 #include <string.h>
 #include <sys/wait.h>
 
-int exefork(char **bftoken, int goesin);
+int exefork(char **bftoken, int goesin, char **environ);
 int _putchar(char c);
 char **linetoken(char *linea);
 char **findpath(char **environ);
