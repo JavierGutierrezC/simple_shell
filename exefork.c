@@ -4,9 +4,10 @@
  * exefork - Starts a second process to be able to execute another one
  * @bftoken: Process to execute via pointers
  * @goesin: If process does happen then execute
- * Return: 0
+ * @environ: Environment variables
+ *Return: 0
  **/
-int exefork(char **bftoken, int goesin,char **environ)
+int exefork(char **bftoken, int goesin, char **environ)
 {
 	pid_t child_pid;
 	int status;
