@@ -21,4 +21,4 @@ type and enter ./hsh for execute shell then try typing ls inside of the shell an
 .SH REPORTING BUGS
 Keep in mind this is still a WIP prototype and may not fully work as intented in every case
 .SH AUTHOR
-Written by David Bravo & Javier Gutierrez
+Written by Javier Gutierrez & David Bravo
