@@ -16,6 +16,8 @@ int main(int ac, char *av[], char **environ)
 	ssize_t characters;
 	size_t bfsize = 0;
 	int goesin = 0;
+	(void)ac;
+	(void)av;
 
 	while (1)
 	{
