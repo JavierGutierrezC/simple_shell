@@ -35,7 +35,7 @@ int main(int ac, char *av[], char **environ)
 			bftoken = linetoken(bf);
 			pat = findpath(environ);
 			goesin = _stat(bftoken, pat);
-			exefork(bftoken, goesin);
+			exefork(bftoken, goesin, environ);
 		}
 		if ((strcmp("env\n", bf)) == 0)
 		{
