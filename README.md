@@ -26,3 +26,16 @@ Our operational commands
 ```SHELL
 ls - list directory contents
 pwd - print name of current/working directory
+```
+(More information in the man pages of each command using the command "man" then the name of command in the shell)
+
+## Example
+### Clone repo using HTTPS
+``` $ git clone https://github.com/JavierGutierrezC/simple_shell.git ```
+
+### Compilation
+You can compile the files using this command:
+``` $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh ```
+
+## Authors | License
+@javiguti11 - @dbravobel | @Holberton School
