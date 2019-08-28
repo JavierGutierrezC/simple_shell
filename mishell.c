@@ -16,18 +16,18 @@ int main(int ac, char *av[], char **environ)
 	ssize_t characters;
 	size_t bfsize = 0;
 	int goesin = 0;
+	(void)ac;
+	(void)av;
 
 	while (1)
 	{
 
-		write(1, "mishell$ ", 9);
+		write(1, "$ ", 2);
 		characters = getline(&bf, &bfsize, stdin);
-		if (characters == -1)
+		if (characters == EOF)
 		{
-			if (ac != 1)
-				perror(av[0]);
-
-			return (1);
+			free(bf);
+			exit(0);
 		}
 
 		if (*bf != '\n' && (strcmp(bf, "env\n") != 0))
