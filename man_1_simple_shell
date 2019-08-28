@@ -1,0 +1,24 @@
+.TH HSH 1 "August 2019" "0.1" "User Commands"
+.SH NAME
+hsh - simple command language interpreter (shell)
+.SH SYNOPSIS
+.B hsh
+.I [command string] [arguments ...]
+.SH DESCRIPTION
+hsh or the shell utility is a command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file. The application shall ensure that the commands to be executed are expressed in the language described in Shell Command Language.
+.SH Overview
+The shell is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands.
+The shell incorporates many features to aid interactive use and has the advantage that the interpretative language is common to both interactive and non-interactive use (shell scripts). That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell.
+.SH commands:
+.PP
+ls - list directory contents
+.PP
+pwd - print name of current/working directory
+.PP
+exit - cause normal process termination
+.SH EXAMPLE
+type and enter ./hsh for execute shell then try typing ls inside of the shell and hit enter, it should enlist all the files in the current directory 
+.SH REPORTING BUGS
+Keep in mind this is still a WIP prototype and may not fully work as intented in every case
+.SH AUTHOR
+Written by David Bravo & Javier Gutierrez
