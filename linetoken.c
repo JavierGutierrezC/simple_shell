@@ -2,11 +2,11 @@
 /**
  * linetoken - breaks the line from prompt into tokens
  * @linea: line from getline
- *
+ * @env: env variable
  * Return: buffer which is an array of pointers
  **/
 
-char **linetoken(char *linea)
+char **linetoken(char *linea, char **env)
 {
 	int count = 0;
 	char *line;
@@ -32,5 +32,7 @@ char **linetoken(char *linea)
 		free(buffer);
 		exit(0);
 	}
+	if ((_strcmp(buffer[0], "env") == 0) && buffer[1] == NULL)
+		find_env(env);
 	return (buffer);
 }
