@@ -1,12 +1,12 @@
 #include "shellib.h"
 
 /**
- * exefork - ...
- * @bftoken: ...
- *
+ * exefork - Starts a second process to be able to execute another one
+ * @bftoken: Process to execute via pointers
+ * @goesin: If process does happen then execute
  * Return: 0
  **/
-int exefork(char **bftoken)
+int exefork(char **bftoken, int goesin)
 {
 	pid_t child_pid;
 	int status;
@@ -18,19 +18,23 @@ int exefork(char **bftoken)
 
 	if (child_pid < 0)
 	{
-		perror("Error");
+		perror("./hsh: ");
 		exit(1);
 	}
 	else if (child_pid == 0)
 	{
 		if (execve(bftoken[0], bftoken, NULL) == -1)
-			perror("hola");
+			perror("./hsh: ");
+		/**free(bftoken);*/
 		exit(1);
 	}
 	else
 	{
+		if (goesin == 1)
+			free(bftoken[0]);
+		/* free(bftoken[0]); */
+		free(bftoken);
 		child_pid = wait(&status);
-		/*free(bftoken);*/
 	}
 	return (0);
 }

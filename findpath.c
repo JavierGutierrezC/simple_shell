@@ -1,13 +1,12 @@
 #include "shellib.h"
 
 /**
- * findpath - ...
- * @environ: ...
+ * findpath - gets the path to execute commands
+ * @environ: Env variables as a pointer
  *
  * Return: tokpa
  **/
 char **findpath(char **environ)
-/**int main(void)*/
 {
 	int x;
 	char **tokpa;
@@ -19,24 +18,24 @@ char **findpath(char **environ)
 		{
 		/**printf("%s\n", environ[x]);*/
 			tokpa = usepath(environ[x]);
-			return (tokpa);
+			/**return (tokpa);*/
 		}
 	}
-
+	return (tokpa);
 }
 
 /**
- * usepath - ...
- * @fpat: ...
+ * usepath - creates tokens form the directory PATH
+ * @fpat: Path variables in form of pointers
  *
  * Return: tokpa
  **/
 char **usepath(char *fpat)
 {
 	int count = 0;
-	char *usep;
-	char **tokpat = malloc(sizeof(char *) * 64);
-	char *fpat_copy;
+	char *usep = NULL;
+	char **tokpat = _calloc(sizeof(char *), 64);
+	char *fpat_copy = NULL;
 
 	if (tokpat == NULL)
 		return (NULL);
