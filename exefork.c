@@ -12,8 +12,8 @@ int exefork(char **bftoken, int goesin, char **environ)
 	pid_t child_pid;
 	int status;
 
-	/*if (bftoken == NULL) */
-	/*return (-1); */
+	if (bftoken == NULL)
+	return (-1);
 	child_pid = fork();
 
 	if (child_pid < 0)
