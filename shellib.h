@@ -13,7 +13,7 @@
 
 int exefork(char **bftoken, int goesin, char **environ);
 int _putchar(char c);
-char **linetoken(char *linea);
+char **linetoken(char *linea, char **env);
 char **findpath(char **environ);
 char **usepath(char *fpat);
 int _stat(char **bftoken, char **pat);

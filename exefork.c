@@ -29,6 +29,7 @@ int exefork(char **bftoken, int goesin, char **environ)
 			free(bftoken);
 			exit(1);
 		}
+		exit(0);
 	}
 	else
 	{
@@ -38,5 +39,5 @@ int exefork(char **bftoken, int goesin, char **environ)
 		free(bftoken);
 		wait(&status);
 	}
-	return (0);
+	return (1);
 }

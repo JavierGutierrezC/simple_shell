@@ -23,7 +23,7 @@ int main(int ac, char *av[], char **environ)
 	{
 
 		if (isatty(STDIN_FILENO))
-
+			write(STDIN_FILENO, "$ ", 2);
 		characters = getline(&bf, &bfsize, stdin);
 		if (characters == EOF)
 		{
@@ -32,22 +32,17 @@ int main(int ac, char *av[], char **environ)
 
 		if (*bf != '\n')
 		{
-			bftoken = linetoken(bf);
+			bftoken = linetoken(bf, environ);
 			if ((_strcmp(bftoken[0], "\n") != 0) && (_strcmp(bftoken[0], "env") != 0))
 			{
-				if ((_strcmp(bftoken[0], "env") == 0))
-				{
-					find_env(environ); }
-				else
-				{
-					pat = findpath(environ);
-					goesin = _stat(bftoken, pat);
-					exefork(bftoken, goesin, environ); }
-			}
+				pat = findpath(environ);
+				goesin = _stat(bftoken, pat);
+				exefork(bftoken, goesin, environ); }
 			else
 			{
-				free(bftoken); }
+				free(bftoken);
+			}
 		}
 	}
-	return (0);
+return (0);
 }
