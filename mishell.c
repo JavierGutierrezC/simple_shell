@@ -31,14 +31,17 @@ int main(int ac, char *av[], char **environ)
 			exit(0);
 		}
 
-		if (*bf != '\n' && (strcmp(bf, "env\n") != 0))
+		if (*bf != '\n' && (_strcmp(bf, "env\n") != 0))
 		{
 			bftoken = linetoken(bf);
-			pat = findpath(environ);
-			goesin = _stat(bftoken, pat);
-			exefork(bftoken, goesin, environ);
+			if (_strcmp(bftoken[0], "\n") != 0)
+			{
+				pat = findpath(environ);
+				goesin = _stat(bftoken, pat);
+				exefork(bftoken, goesin, environ);
+			}
 		}
-		if ((strcmp("env\n", bf)) == 0)
+		if ((_strcmp("env\n", bf)) == 0)
 		{
 			find_env(environ);
 		}
