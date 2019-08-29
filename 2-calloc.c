@@ -1,12 +1,12 @@
 #include "shellib.h"
-#include <string.h>
-#include <stdlib.h>
+
 /**
- *_calloc - Allocates memeory for an array
+ * _calloc - Allocates memory for array
  * @nmemb: Elements of array
  * @size: Size of array
- * Return: Return pinter to memory
- */
+ *
+ * Return: Pinter to memory (x)
+ **/
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *x;
@@ -14,12 +14,15 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
+
 	x = malloc(nmemb * size);
+
 	if (x == NULL)
 		return (NULL);
-	for (y = 0; y < (nmemb * size); y++)
-{
-	x[y] = 0;
-}
+
+	for (y = 0 ; y < (nmemb * size) ; y++)
+	{
+		x[y] = 0;
+	}
 	return (x);
 }
