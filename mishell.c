@@ -1,7 +1,7 @@
 #include "shellib.h"
 
 /**
- * main - executes commands
+ * main - Executes commands
  * @ac: Argument counts
  * @av: Arguments in an array
  * @environ: Array of pointers of the variable environment
@@ -44,5 +44,5 @@ int main(int ac, char *av[], char **environ)
 			}
 		}
 	}
-return (0);
+	return (0);
 }
