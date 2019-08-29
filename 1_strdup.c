@@ -1,12 +1,11 @@
 #include "shellib.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 /**
  * _strdup - returns a pointer to a new space in memery
  * @str: character in string
  *
- * Return: NULL if str is NULL
- */
+ * Return: NULL if str is NULL, otherwise returns x
+ **/
 char *_strdup(char *str)
 {
 	char *x;
@@ -15,15 +14,16 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	for (y = 0; str[y] != '\0'; y++)
+	for (y = 0 ; str[y] != '\0' ; y++)
 		;
 	y++;
 	x = malloc(y * sizeof(char));
+
 	if (x == NULL)
 	{
 		return (NULL);
 	}
-	for (z = 0; z < y; z++)
+	for (z = 0 ; z < y ; z++)
 	{
 		x[z] = str[z];
 	}
