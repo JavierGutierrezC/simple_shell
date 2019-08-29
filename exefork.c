@@ -1,11 +1,12 @@
 #include "shellib.h"
 
 /**
- * exefork - Starts a second process to be able to execute another one
+ * exefork - Starts a child process to be able to execute another function
  * @bftoken: Process to execute via pointers
  * @goesin: If process does happen then execute
  * @environ: Environment variables
- *Return: 0
+ *
+ * Return: 1
  **/
 int exefork(char **bftoken, int goesin, char **environ)
 {
@@ -35,7 +36,7 @@ int exefork(char **bftoken, int goesin, char **environ)
 	{
 		if (goesin == 1)
 			free(bftoken[0]);
-		/* free(bftoken[0]); */
+
 		free(bftoken);
 		wait(&status);
 	}
